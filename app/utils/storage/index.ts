@@ -2,6 +2,11 @@ import { MMKV } from "react-native-mmkv"
 
 export const storage = new MMKV()
 
+
+export const FIRST_TIME = "FIRST_TIME"
+
+
+
 /**
  * Loads a string from storage.
  *
@@ -69,7 +74,7 @@ export function save(key: string, value: unknown): boolean {
 export function remove(key: string): void {
   try {
     storage.delete(key)
-  } catch {}
+  } catch { }
 }
 
 /**
@@ -78,5 +83,5 @@ export function remove(key: string): void {
 export function clear(): void {
   try {
     storage.clearAll()
-  } catch {}
+  } catch { }
 }
