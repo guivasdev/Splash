@@ -24,7 +24,6 @@ import * as Linking from "expo-linking"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
 
-import { AuthProvider } from "./context/AuthContext"
 import { initI18n } from "./i18n"
 import { AppNavigator } from "./navigators/AppNavigator"
 import { useNavigationPersistence } from "./navigators/navigationUtilities"
@@ -39,20 +38,10 @@ export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
 const prefix = Linking.createURL("/")
 const config = {
   screens: {
-    Login: {
+    Splash: {
       path: "",
     },
-    Welcome: "welcome",
-    Demo: {
-      screens: {
-        DemoShowroom: {
-          path: "showroom/:queryIndex?/:itemIndex?",
-        },
-        DemoDebug: "debug",
-        DemoPodcastList: "podcast",
-        DemoCommunity: "community",
-      },
-    },
+   
   },
 }
 
@@ -96,7 +85,6 @@ export function App() {
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <KeyboardProvider>
-        <AuthProvider>
           <ThemeProvider>
             <AppNavigator
               linking={linking}
@@ -104,7 +92,6 @@ export function App() {
               onStateChange={onNavigationStateChange}
             />
           </ThemeProvider>
-        </AuthProvider>
       </KeyboardProvider>
     </SafeAreaProvider>
   )

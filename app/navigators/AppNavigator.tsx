@@ -8,13 +8,9 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
 import Config from "@/config"
-import { useAuth } from "@/context/AuthContext"
 import { ErrorBoundary } from "@/screens/ErrorScreen/ErrorBoundary"
-import { LoginScreen } from "@/screens/LoginScreen"
-import { WelcomeScreen } from "@/screens/WelcomeScreen"
 import { useAppTheme } from "@/theme/context"
 
-import { DemoNavigator } from "./DemoNavigator"
 import type { AppStackParamList, NavigationProps } from "./navigationTypes"
 import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
 import { SplashScreen } from "@/screens/SplashScreen"
@@ -31,8 +27,6 @@ const exitRoutes = Config.exitRoutes
 const Stack = createNativeStackNavigator<AppStackParamList>()
 
 const AppStack = () => {
-  const { isAuthenticated } = useAuth()
-
   const {
     theme: { colors },
   } = useAppTheme()

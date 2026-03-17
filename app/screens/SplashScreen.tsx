@@ -16,19 +16,14 @@ export const SplashScreen: FC<SplashScreenProps> = () => {
   const { themed, theme: { colors }, } = useAppTheme()
   const navigation = useNavigation();
 
-
   const isReady = () => {
     const isAlready = load(FIRST_TIME)
-    console.log(isAlready)
+
     if (!isAlready) {
       save(FIRST_TIME, 'true')
-      console.log('bb:', isAlready)
-
       return true
     }
-    console.log('aa:', isAlready)
     return false
-
 
   }
   useEffect(() => {
@@ -39,7 +34,6 @@ export const SplashScreen: FC<SplashScreenProps> = () => {
         navigation.navigate('First' as never)
       else
         navigation.navigate('Home' as never)
-
     }
     init()
 
@@ -52,7 +46,7 @@ export const SplashScreen: FC<SplashScreenProps> = () => {
 
       <Text style={{ color: 'white', fontSize: 20, letterSpacing: 1.5, fontWeight: 'bold', textAlign: 'center', lineHeight: 40 }} text="Carregando Dados..." />
       <ActivityIndicator size="large" color="#0c9e8d" />
-      
+
     </Screen>
   )
 }

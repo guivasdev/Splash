@@ -1,22 +1,30 @@
 import { FC } from "react"
-import { ViewStyle } from "react-native"
+import { TextStyle, ViewStyle } from "react-native"
 import type { AppStackScreenProps } from "@/navigators/navigationTypes"
 import { Screen } from "@/components/Screen"
 import { Text } from "@/components/Text"
 // import { useNavigation } from "@react-navigation/native"
 
-interface FirstScreenProps extends AppStackScreenProps<"First"> {}
+interface FirstScreenProps extends AppStackScreenProps<"First"> { }
 
 export const FirstScreen: FC<FirstScreenProps> = () => {
   // Pull in navigation via hook
   // const navigation = useNavigation()
   return (
-    <Screen style={$root} preset="scroll">
-      <Text text="first" />
+    <Screen contentContainerStyle={$root} preset="scroll">
+      <Text style={$text} text="FIRST" />
     </Screen>
   )
 }
 
 const $root: ViewStyle = {
   flex: 1,
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "#c5f2ff",
+}
+
+const $text: TextStyle = {
+  fontSize: 32,
+  fontWeight: "bold",
 }
